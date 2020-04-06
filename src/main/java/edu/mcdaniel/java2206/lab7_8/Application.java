@@ -1,6 +1,7 @@
 package edu.mcdaniel.java2206.lab7_8;
 
 import edu.mcdaniel.java2206.lab7_8.components.CombinedFileWriter;
+import edu.mcdaniel.java2206.lab7_8.components.Converter;
 import edu.mcdaniel.java2206.lab7_8.components.DowFileReader;
 import edu.mcdaniel.java2206.lab7_8.components.InflationRateFileReader;
 import edu.mcdaniel.java2206.lab7_8.exceptions.DowFileReaderException;
@@ -65,6 +66,8 @@ public class Application {
 
         //===// User Defined Behavior //=========================================================//
         //Please start here and make the application work!
+        Converter converter = new Converter();
+
         try {
             InflationRateFileReader inflationRateFileReader = new InflationRateFileReader();
             inflationRateFileReader.validate();
@@ -76,6 +79,7 @@ public class Application {
             Map<Integer, Double> inflationRates = inflationRateFileReader.getInflationRates();
             Map<Integer, Date> inflationDates = inflationRateFileReader.getInflationDates();
 
+            converter.inputInflationData(inflationRates, inflationDates);
 
             Set<Map.Entry<Integer, Double>> entrySet = inflationRates.entrySet();
             for (Map.Entry<Integer, Double> entry : entrySet) {
@@ -102,6 +106,7 @@ public class Application {
             Map<Integer, Double> closes = dowFileReader.getDowClose();
             Map<Integer, Date> dates = dowFileReader.getDowDates();
 
+            converter.inputDowData(opens, highs, lows, closes, dates);
 
             Set<Map.Entry<Integer, Double>> entrySet = opens.entrySet();
             for (Map.Entry<Integer, Double> entry : entrySet) {
@@ -118,17 +123,26 @@ public class Application {
             log.error(dfre);
         }
 
-        CombinedFileWriter combinedFileWriter = new CombinedFileWriter("temp2", "txt")
-                .withNamedFile().validate();
-
-        List<String> infoToWriteToFile = new ArrayList<>();
-        infoToWriteToFile.add("Hello World!");
+        CombinedFileWriter combinedFileWriterInflation =
+                new CombinedFileWriter("InflationData", "txt")
+                        .withNamedFile().validate();
+        CombinedFileWriter combinedFileWriterDow =
+                new CombinedFileWriter("DowData", "txt")
+                        .withNamedFile().validate();
+        List<String> infoToWriteToInfFile = converter.getConvertedInflationInfo();
+        List<String> infoToWriteToDowFile = converter.getConvertedDowInfo();
 
         boolean wrote = false;
         try {
-             wrote = combinedFileWriter.writeFileContents(infoToWriteToFile);
+             wrote = combinedFileWriterInflation.writeFileContents(infoToWriteToInfFile);
         } catch(IOException ioe){
-            log.error(new FileWriterException("Failed to Write.", ioe));
+            log.error(new FileWriterException("Failed to Write Inf File.", ioe));
+        }
+
+        try {
+            wrote = wrote && combinedFileWriterDow.writeFileContents(infoToWriteToDowFile);
+        } catch(IOException ioe){
+            log.error(new FileWriterException("Failed to Write Dow File.", ioe));
         }
 
         if(wrote){
