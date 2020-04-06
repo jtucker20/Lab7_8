@@ -1,6 +1,6 @@
-package edu.mcdaniel.java2206.lab7_8.components;
+package edu.mcdaniel.java2206.lab7_8_MW.components;
 
-import edu.mcdaniel.java2206.lab7_8.exceptions.InflationRateFileReaderException;
+import edu.mcdaniel.java2206.lab7_8_MW.exceptions.InflationRateFileReaderException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

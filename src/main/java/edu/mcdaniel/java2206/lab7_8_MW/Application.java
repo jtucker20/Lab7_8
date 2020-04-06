@@ -1,12 +1,12 @@
-package edu.mcdaniel.java2206.lab7_8;
+package edu.mcdaniel.java2206.lab7_8_MW;
 
-import edu.mcdaniel.java2206.lab7_8.components.CombinedFileWriter;
-import edu.mcdaniel.java2206.lab7_8.components.Converter;
-import edu.mcdaniel.java2206.lab7_8.components.DowFileReader;
-import edu.mcdaniel.java2206.lab7_8.components.InflationRateFileReader;
-import edu.mcdaniel.java2206.lab7_8.exceptions.DowFileReaderException;
-import edu.mcdaniel.java2206.lab7_8.exceptions.FileWriterException;
-import edu.mcdaniel.java2206.lab7_8.exceptions.InflationRateFileReaderException;
+import edu.mcdaniel.java2206.lab7_8_MW.components.CombinedFileWriter;
+import edu.mcdaniel.java2206.lab7_8_MW.components.Converter;
+import edu.mcdaniel.java2206.lab7_8_MW.components.DowFileReader;
+import edu.mcdaniel.java2206.lab7_8_MW.components.InflationRateFileReader;
+import edu.mcdaniel.java2206.lab7_8_MW.exceptions.DowFileReaderException;
+import edu.mcdaniel.java2206.lab7_8_MW.exceptions.FileWriterException;
+import edu.mcdaniel.java2206.lab7_8_MW.exceptions.InflationRateFileReaderException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;

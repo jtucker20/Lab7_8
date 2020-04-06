@@ -1,6 +1,6 @@
-package edu.mcdaniel.java2206.lab7_8.components;
+package edu.mcdaniel.java2206.lab7_8_MW.components;
 
-import edu.mcdaniel.java2206.lab7_8.exceptions.FileWriterException;
+import edu.mcdaniel.java2206.lab7_8_MW.exceptions.FileWriterException;
 
 import java.io.File;
 import java.io.FileWriter;
