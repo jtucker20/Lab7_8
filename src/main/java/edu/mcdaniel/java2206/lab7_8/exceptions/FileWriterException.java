@@ -1,4 +1,4 @@
-package edu.mcdaniel.java2206.lab6.exceptions;
+package edu.mcdaniel.java2206.lab7_8.exceptions;
 
 import java.io.IOException;
 

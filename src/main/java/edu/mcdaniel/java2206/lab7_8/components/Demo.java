@@ -1,4 +1,4 @@
-package edu.mcdaniel.java2206.lab6.components;
+package edu.mcdaniel.java2206.lab7_8.components;
 
 public class Demo {
     public static final int MAX_RECURSIONS = 50;
