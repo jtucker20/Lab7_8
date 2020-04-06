@@ -150,7 +150,7 @@ public class DowFileReader {
         if (linePos < 0) {
             throw new DowFileReaderException("Bad Line Position: " + linePos);
         }
-        if (linePos < 3) {
+        if (linePos < 2) {
             return;  // We don't want to read in the header lines!
         }
         String[] lineParts = line.split(","); // Here we split on commas as this file is comma
@@ -171,6 +171,32 @@ public class DowFileReader {
                 throw new DowFileReaderException("Bad Data in line " + linePos + " Line Value " + line);
 
             }
+
+            //Date Parsing
+            String year = date.substring(0, 4);
+            String month = date.substring(5,7);
+            String day = date.substring(8);
+            int yr = Integer.parseInt(year) - 1900;
+            int mn = Integer.parseInt(month) - 1;
+            int dy = Integer.parseInt(day);
+            Date dt = new Date(yr, mn, dy);
+            this.dowDates.put(linePos, dt);
+
+            //Open
+            double opn = Double.parseDouble(open);
+            this.dowOpens.put(linePos, opn);
+
+            //High
+            double hgh = Double.parseDouble(high);
+            this.dowHighs.put(linePos, hgh);
+
+            //Low
+            double lw = Double.parseDouble(low);
+            this.dowLows.put(linePos, lw);
+
+            //Close
+            double cls = Double.parseDouble(close);
+            this.dowClose.put(linePos, cls);
         }
     }
 
