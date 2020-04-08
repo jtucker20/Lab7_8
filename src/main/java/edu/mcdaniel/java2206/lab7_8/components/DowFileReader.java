@@ -150,7 +150,7 @@ public class DowFileReader {
         if (linePos < 0) {
             throw new DowFileReaderException("Bad Line Position: " + linePos);
         }
-        if (linePos < 2) {
+        if (linePos < 1) {
             return;  // We don't want to read in the header lines!
         }
         String[] lineParts = line.split(","); // Here we split on commas as this file is comma
