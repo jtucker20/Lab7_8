@@ -1,5 +1,8 @@
 package edu.mcdaniel.java2206.lab7_8.components;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Demo {
     public static final int MAX_RECURSIONS = 50;
 
@@ -13,6 +16,11 @@ public class Demo {
     }
 
     public static void main(String[] args) {
+
         System.out.println("End Result:" + (new Demo()).valueMaker("$", 0));
+        Map<String,Integer> stringIntegerMap = new HashMap<>();
+        stringIntegerMap.put("First", Integer.valueOf(1));
+
     }
+
 }
