@@ -3,7 +3,8 @@ package edu.mcdaniel.java2206.lab7_8.components;
 import java.util.*;
 
 public class Demo {
-    public static final int MAX_RECURSIONS = 250;
+    public static final int MAX_RECURSIONS = 50;
+    public static final int MAX = 250;
 
     public String valueMaker(String input, int n){
         System.out.println(input);
@@ -30,8 +31,6 @@ public class Demo {
                     + entry.getValue());
         }
 
-
-
         Map<String, Date> stringDatesMap = new HashMap<>();
         stringDatesMap.put("First", new Date());
         stringDatesMap.put("Second", new Date());
@@ -53,6 +52,18 @@ public class Demo {
         }
 
 
+    }
+
+    static void printPattern(int n)
+    {
+        n = 9;
+        // base condition
+        if (n < 250)
+            return;
+
+        // print the remnaining stars of the n-th row recursively
+        System.out.print( "* ");
+        printPattern(n - 1);
     }
 
 
