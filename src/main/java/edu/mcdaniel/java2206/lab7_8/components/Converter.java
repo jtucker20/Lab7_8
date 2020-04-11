@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.format.datetime.DateFormatter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Converter {
 
@@ -56,6 +57,9 @@ public class Converter {
         List<String> result = new ArrayList<>();
 
         // DO the CONVERSION!
+
+        List<String> ListofRates = inflationRates.keySet().stream().collect(Collectors.toCollection(result));
+        List<String> ListofDates = inflationDates.values().stream().collect(Collectors.toCollection(result));
 
         return result;
     }
