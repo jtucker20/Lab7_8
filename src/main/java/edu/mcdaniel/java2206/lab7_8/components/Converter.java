@@ -48,6 +48,8 @@ public class Converter {
                                    Map<Integer, Date> inflationDates) {
 
         // You should save this information
+        inflationRates = inflationRates;
+        inflationDates = inflationDates;
     }
 
     public List<String> getConvertedInflationInfo() {

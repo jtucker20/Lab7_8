@@ -3,7 +3,7 @@ package edu.mcdaniel.java2206.lab7_8.components;
 import java.util.*;
 
 public class Demo {
-    public static final int MAX_RECURSIONS = 50;
+    public static final int MAX_RECURSIONS = 250;
 
     public String valueMaker(String input, int n){
         System.out.println(input);
@@ -54,4 +54,6 @@ public class Demo {
 
 
     }
+
+
 }
