@@ -49,15 +49,14 @@ public class Converter {
                                    Map<Integer, Date> inflationDates) {
 
         // You should save this information
-        inflationRates = inflationRates;
-        inflationDates = inflationDates;
+        this.inflationRates = inflationRates;
+        this.inflationDates = inflationDates;
     }
 
     public List<String> getConvertedInflationInfo() {
         List<String> result = new ArrayList<>();
 
         // DO the CONVERSION!
-
         List<String> ListofRates = inflationRates.keySet().stream().collect(Collectors.toCollection(result));
         List<String> ListofDates = inflationDates.values().stream().collect(Collectors.toCollection(result));
 
