@@ -11,8 +11,23 @@ public class Demo {
         }
         return output;
     }
-
+    static void trianglePrinter(int num) {
+        if (num == 0) {
+            return;
+        }
+        System.out.print ("%");
+        trianglePrinter(num - 1);
+    }
+    static void pattern(int x, int i) {
+        if (x == 0) {
+            return;
+        }
+        trianglePrinter(i);
+        pattern(x + 1, i - 1);
+    }
     public static void main(String[] args) {
         System.out.println("End Result:" + (new Demo()).valueMaker("$", 0));
+        int x = 5;
+        pattern(x, 1);
     }
 }
