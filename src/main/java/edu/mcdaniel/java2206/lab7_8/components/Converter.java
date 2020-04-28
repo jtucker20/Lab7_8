@@ -46,12 +46,30 @@ public class Converter {
 
     public void inputInflationData(Map<Integer, Double> inflationRates,
                                    Map<Integer, Date> inflationDates) {
-
+        this.inflationRates = inflationRates;
+        this.inflationDates = inflationDates;
         // You should save this information
     }
 
     public List<String> getConvertedInflationInfo() {
         List<String> result = new ArrayList<>();
+
+        Set<Map.Entry<Integer, Double>> inflationSet =this.inflationRates.entrySet();
+
+        for (Map.Entry<Integer, Double> inflationEntry : inflationSet) {
+
+            int key = inflationEntry.getKey();
+
+            double infRate = this.inflationRates.get(key); // infEntry.getValue();
+
+            Date infDate = this.inflationDates.get(key);//
+
+
+
+            String lineValue = "On " + infDate.toString() + " , the inflation rate was " + infRate + ".";
+
+            result.add(lineValue);
+        }
 
         // DO the CONVERSION!
 
@@ -68,8 +86,13 @@ public class Converter {
             int key = opensEntry.getKey();
 
             double open = this.opens.get(key); //opensEntry.getValue();
+            double high = this.highs.get(key);
+            double low = this.lows.get(key);
+            double close = this.closes.get(key);
+            Date date = this.dates.get(key);
 
-            String lineValue = "";
+            String lineValue = " On " + date.toString() + ", the Open was " + open + ", the High was " + high +
+                    ", the Low was " + low + ", and the Close was " + close + ". \n";
 
             result.add(lineValue);
         }

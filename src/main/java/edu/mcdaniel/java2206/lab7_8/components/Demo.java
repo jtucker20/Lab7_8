@@ -3,6 +3,23 @@ package edu.mcdaniel.java2206.lab7_8.components;
 import java.util.*;
 
 public class Demo {
+    public String percentMaker(String input, int n, int idx) {
+        String output = input + "%";
+        if (idx > 250){
+            return output;
+        }
+        if (n > 0){
+            output = percentMaker(output, n - 1, 0 );
+        }
+        if (n == 0){
+            System.out.println(output);
+            output = "%";
+            idx++;
+            n = 250 - idx;
+            return percentMaker(output, n - 1, idx + 1);
+        }
+        return output;
+    }
     public static final int MAX_RECURSIONS = 50;
 
     public String valueMaker(String input, int n){
@@ -15,6 +32,7 @@ public class Demo {
     }
 
     public static void main(String[] args) {
+        (new Demo()).percentMaker("%", 250, 0);
         System.out.println("End Result:" + (new Demo()).valueMaker("$", 0));
 
         Map<String, Integer> stringIntegerMap = new HashMap<>();
