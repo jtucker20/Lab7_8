@@ -3,20 +3,22 @@ package edu.mcdaniel.java2206.lab7_8.components;
 import java.util.*;
 
 public class Demo {
-    public String percentMaker(String input, int n, int idx) {
-        String output = input + "%";
-        if (idx > 250){
-            return output;
+
+    public void percentMakerOverall(int idx){
+        if(idx < 1){
+            return;
         }
+        idx--;
+        percentMaker("%", idx);
+        percentMakerOverall(idx);
+    }
+    public String percentMaker(String input, int n) {
+        String output = input + "%";
         if (n > 0){
-            output = percentMaker(output, n - 1, 0 );
+            output = percentMaker(output, n - 1);
         }
         if (n == 0){
             System.out.println(output);
-            output = "%";
-            idx++;
-            n = 250 - idx;
-            return percentMaker(output, n - 1, idx + 1);
         }
         return output;
     }
@@ -32,7 +34,7 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-        (new Demo()).percentMaker("%", 250, 0);
+        (new Demo()).percentMakerOverall(250);
         System.out.println("End Result:" + (new Demo()).valueMaker("$", 0));
 
         Map<String, Integer> stringIntegerMap = new HashMap<>();
