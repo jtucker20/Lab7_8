@@ -48,12 +48,24 @@ public class Converter {
                                    Map<Integer, Date> inflationDates) {
 
         // You should save this information
+        this.inflationRates= inflationRates;
+        this.inflationDates= inflationDates;
     }
 
     public List<String> getConvertedInflationInfo() {
         List<String> result = new ArrayList<>();
 
         // DO the CONVERSION!
+        Set<Map.Entry<Integer, Double>> inflationRatesSet = inflationRates.entrySet();
+
+        for (Map.Entry<Integer, Double> inflationRateEntry : inflationRatesSet){
+            int key = inflationRateEntry.getKey();
+
+            double rate = this.inflationRates.get(key);
+            Date date = this.inflationDates.get(key);
+            String value = "On " + date.toString() + ",the inflationRate was " + rate + ".";
+            result.add (value);
+        }
 
         return result;
     }
