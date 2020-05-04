@@ -81,6 +81,7 @@ public class Converter {
 
             double open = this.opens.get(key); //opensEntry.getValue();
 
+
             String lineValue = "";
 
             result.add(lineValue);
