@@ -80,9 +80,14 @@ public class Converter {
             int key = opensEntry.getKey();
 
             double open = this.opens.get(key); //opensEntry.getValue();
+            double highs = this.highs.get(key);
+            double lows = this.lows.get(key);
+            double closes = this.closes.get(key);
+
+            Date date = this.dates.get(key);
 
 
-            String lineValue = "";
+            String lineValue = "On" + date.toString() + ", the open was" + open + ",the highs was " + highs + ",the lows was" + lows + ", the closes was" + closes + ".";
 
             result.add(lineValue);
         }
