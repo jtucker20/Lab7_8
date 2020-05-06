@@ -84,7 +84,7 @@ public class Converter {
             double lows = this.lows.get(key);
             double closes = this.closes.get(key);
 
-            Date date = this.dates.get(key);
+            Date date = this.dates.get (key);
 
 
             String lineValue = "On" + date.toString() + ", the open was" + open + ",the highs was " + highs + ",the lows was" + lows + ", the closes was" + closes + ".";
